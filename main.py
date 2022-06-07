@@ -6,12 +6,13 @@ word = random.choice(words)
 
 test = 'flavor'
 
-mystery = list(test)
+mystery = list(word)
 
 
 turns = 6
 
 correct = ''
+incorrect = ''
 blanks = []
 
 
@@ -24,8 +25,9 @@ def eval_letter(user):
         correct += user
         print('You got it!')
     else:
-        global turns
+        global turns, incorrect
         turns -= 1
+        incorrect += user
         print('Nope, wrong letter. Try again!')
 
 def display_word(mystery):
@@ -40,13 +42,19 @@ def display_word(mystery):
     # print(mystery)
     return blanks
 
+blanks = '_' * len(mystery)
 
+print(''.join(blanks))
 
 while turns > 0:
     print(f"Remaining Turns: {turns}")
+    print(f"Incorrect letters: {incorrect}")
     user = input('Try to guess a letter in this mystery word: ')
 
     eval_letter(user)
     display_word(mystery)
 
+    if blanks == word:
+        print('you won!')
+        break
 
