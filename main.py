@@ -6,16 +6,30 @@ word = random.choice(words)
 
 test = 'stand'
 
+mystery = list(test)
+
 def display_word(test):
-    word = list(test)
-    blank = []
-    # print(word)
-    for char in word:
-        res = '_'
-        blank += res
-    print(''.join(blank))
-    return ''.join(blank)
+    blanks = []
+    for l in test:
+        space = '_'
+        blanks += space
+    print(''.join(blanks))
+    # print(mystery)
+    return blanks
 
 
 
 display_word(test)
+
+user = input('Try to guess a letter in this mystery word: ')
+
+def eval_letter(user):
+    if user in mystery:
+        print('yay!')
+    else:
+        print('nope!')
+
+
+
+
+eval_letter(user)
