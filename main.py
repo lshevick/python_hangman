@@ -1,6 +1,6 @@
 import random
 from hangman_ascii import HANGMANPICS
-words = ['fish', 'food', 'represent', 'quick', 'edible', 'imaginary', 'lost', 'duck', 'lettuce', 'magic', 'mandatory', 'latent', 'escapade', 'garage', 'friends', 'search', 'match', 'loop', 'lamp', 'loot', 'steal', 'internet', 'grass', 'rocket', 'blade', 'swim', 'sword', 'axe', 'eye', 'knife', 'jar', 'rifle', 'revolver', 'sentry', 'dispenser', 'robot', 'baseball']
+words = ['fish', 'food', 'python', 'javascript', 'linux', 'apple', 'code', 'react', 'represent', 'quick', 'edible', 'imaginary', 'lost', 'duck', 'lettuce', 'magic', 'mandatory', 'latent', 'escapade', 'garage', 'friends', 'search', 'match', 'loop', 'lamp', 'loot', 'steal', 'internet', 'grass', 'rocket', 'blade', 'swim', 'sword', 'axe', 'eye', 'knife', 'jar', 'rifle', 'revolver', 'sentry', 'dispenser', 'robot', 'baseball']
 
 word = random.choice(words)
 # print(word)
@@ -47,6 +47,7 @@ def display_word(mystery):
 blanks = '_' * len(mystery)
 print(''.join(blanks))
 
+# this is the game loop
 while turns > 0:
     print(HANGMANPICS[turns])
     print(f"Incorrect letters: {incorrect}")
@@ -59,4 +60,8 @@ while turns > 0:
     if blanks == word:
         print('✨ you won! ✨')
         break
+
+    if turns == 0:
+        print(HANGMANPICS[0])
+        print(f"This is what the mystery word was: {word}")
 
