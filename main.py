@@ -4,32 +4,49 @@ words = ['fish', 'food', 'represent', 'quick', 'edible', 'imaginary', 'lost', 'd
 word = random.choice(words)
 # print(word)
 
-test = 'stand'
+test = 'flavor'
 
 mystery = list(test)
 
-def display_word(test):
-    blanks = []
-    for l in test:
-        space = '_'
-        blanks += space
+
+turns = 6
+
+correct = ''
+blanks = []
+
+
+def eval_letter(user):
+    # script will need to check wether the user guessed a letter that exists in the mystery word. 
+    # script will need to keep track of which letters go where and when a letter is correctly guessed, will need to replace the blank space with that letter
+    # maybe use the list that has been assigned to the mystery varaible and change those 
+    if user in mystery:
+        global correct, blanks
+        correct += user
+        print('You got it!')
+    else:
+        global turns
+        turns -= 1
+        print('Nope, wrong letter. Try again!')
+
+def display_word(mystery):
+    global blanks
+    blanks = '_' * len(mystery)
+    for l in range(len(mystery)):
+        if mystery[l] in correct:
+            blanks = blanks[:l] + mystery[l] + blanks[l+1:]
     print(''.join(blanks))
+    print('')
+    print('')
     # print(mystery)
     return blanks
 
 
 
-display_word(test)
+while turns > 0:
+    print(f"Remaining Turns: {turns}")
+    user = input('Try to guess a letter in this mystery word: ')
 
-user = input('Try to guess a letter in this mystery word: ')
-
-def eval_letter(user):
-    if user in mystery:
-        print('yay!')
-    else:
-        print('nope!')
+    eval_letter(user)
+    display_word(mystery)
 
 
-
-
-eval_letter(user)
