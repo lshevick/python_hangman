@@ -2,6 +2,7 @@ import random
 from hangman_ascii import HANGMANPICS
 words = ['fish', 'food', 'python', 'javascript', 'linux', 'apple', 'code', 'react', 'represent', 'quick', 'edible', 'imaginary', 'lost', 'duck', 'lettuce', 'magic', 'mandatory', 'latent', 'escapade', 'garage', 'friends', 'search', 'match', 'loop', 'lamp', 'loot', 'steal', 'internet', 'grass', 'rocket', 'blade', 'swim', 'sword', 'axe', 'eye', 'knife', 'jar', 'rifle', 'revolver', 'sentry', 'dispenser', 'robot', 'baseball', 'saxophone', 'moose', 'harpsichord', 'deck', 'salmon', 'quinoa', 'caesar', 'bread', 'impress', 'matador', 'baguette', 'croissant', 'succulent', 'wireframe', 'gondola', 'vanilla', 'chocolate', 'conversation', 'communication', 'speak', 'freedom', 'professional', 'bottle', 'juxtapositioned', 'enemy']
 
+
 word = random.choice(words)
 
 mystery = list(word)
